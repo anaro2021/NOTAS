@@ -5,55 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedir una Nota</title>
     <style>
-        #display{
-            border:solid red 2px; 
+        #display {
+            border: solid red 2px;
         }
     </style>
-</head> 
+</head>
 <body>
     <h1>Pedir una nota (nota)</h1>
-    <button onclick="calculaCalificacion()">Calcular la Calificacion</button>
-    <label not="nota">Nota:</label>
+    
+    <label for="nota">Nota:</label>
     <input type="number" id="nota">
     <div id="display"></div>
+    <button onclick="diceNotaFormulario()">
+        Calcular la Calificacion:
+    </button>
+    <div id="display"></div>
     <script>
-    function diceNota() {
-
-        let nota;
-            do{
-                nota= prompt("Dime la Nota");
-            
-            }while (isNaN(nota) || nota <0 || nota>10);
+        function diceNota() {
+            let nota;
+            do {
+                nota = prompt("Dime la Nota");
+            } while (isNaN(nota) || nota < 0 || nota > 10);
           
             alert(notaAtexto(nota));
-       
-    }    
-        function notaAtexto(nota){
-        
-            if (nota=>0 && nota<3) {
-            return "Muy deficiente";
+        }
+
+        function notaAtexto(nota) {
+            if (nota >= 0 && nota < 3) {
+                return "Muy deficiente";
             }
-            if (nota=>3 && nota<5) {
-                return "Insufiente";
+            if (nota >= 3 && nota < 5) {
+                return "Insuficiente";
             }
-            if (nota=>5 && nota<6) {
-                return "Sufiente";
+            if (nota >= 5 && nota < 6) {
+                return "Suficiente";
             }
-            if (nota=>6 && nota<7) {
+            if (nota >= 6 && nota < 7) {
                 return "Bien";
             }
-            if (nota=>7 && nota<9) {
+            if (nota >= 7 && nota < 9) {
                 return "Notable";
             }
-            if (nota=>9 && nota<10) {
+            if (nota >= 9 && nota <= 10) {
                 return "Sobresaliente";
             }
-         }
-         function diceNotaFormulario(){
-            let nota=document.getElementById("nota").value;
-            let display=document.getElementById("display");
-            display.innerHTML = "<h1>" + notaAtexto(nota) + "</h1>"
-         }
+        }
+
+        function diceNotaFormulario() {
+            let nota = document.getElementById("nota").value;
+            let display = document.getElementById("display");
+            display.innerHTML = "<h1>" + notaAtexto(nota) + "</h1>";
+        }
     </script>
 </body>
 </html>
